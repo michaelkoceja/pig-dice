@@ -3,19 +3,19 @@
 function Player(name1, age) {
   this.name1 = name1;
   this.age = age;
+  this.currentRoll;
 }
 
-var player = new Player("", "");
 
 Player.prototype.roll = function() {
   return Math.floor(Math.random()*6+1);
 }
 
 Player.prototype.one = function() {
-  if (player.roll() === 1);
+  if (this.currentRoll === 1){
   alert("BINGO");
 }
-
+}
 // if (player.roll() === 1);
 // alert("BINGO");
 
@@ -26,11 +26,14 @@ $(function(){
     event.preventDefault();
 
 
+    var player = new Player("", "");
+    player.currentRoll = player.roll();
+    $("#results").show().append("<li>" + player.currentRoll + "</li>");
+    player.one();
 
-    $("#results").show().append("<li>" + player.roll() + "</li>");
-    // player.one();
 
+    console.log("1st "+player.roll());
+    console.log("2nd "+player.roll());
 
-    console.log(player.roll());
   });
 });
