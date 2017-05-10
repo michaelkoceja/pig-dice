@@ -5,25 +5,30 @@ function Player(name1, age) {
   this.age = age;
 }
 
+var player = new Player("", "");
+
 Player.prototype.roll = function() {
   return Math.floor(Math.random()*6+1);
+    if (x === 1)
+    alert("BINGO");
 }
 
 // var score;
 // score = dice;
-console.log();
-
 
 //User Interface Logic
 
 $(function(){
-  var player = new Player("", "");
-  $("#formOne").click(function(event) {
+  $("#rollDice").click(function(event) {
     event.preventDefault();
 
-    $("#rollDice").click(function() {
-      // $("#results").show();
-    console.log(player.roll());
-    });
+    var x = player.roll();
+
+    $("#results").show().append("<li>" + x + "</li>");
+
+    // .on("click", "li", function() {
+    //   $("#results").html(x);
+    // });
+    console.log(x);
   });
 });
