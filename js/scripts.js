@@ -9,26 +9,28 @@ var player = new Player("", "");
 
 Player.prototype.roll = function() {
   return Math.floor(Math.random()*6+1);
-    if (x === 1)
-    alert("BINGO");
 }
 
-// var score;
-// score = dice;
+Player.prototype.one = function() {
+  if (player.roll() === 1);
+  alert("BINGO");
+}
+
+// if (player.roll() === 1);
+// alert("BINGO");
 
 //User Interface Logic
 
 $(function(){
-  $("#rollDice").click(function(event) {
+  $("#formOne").submit(function(event) {
     event.preventDefault();
 
-    var x = player.roll();
 
-    $("#results").show().append("<li>" + x + "</li>");
 
-    // .on("click", "li", function() {
-    //   $("#results").html(x);
-    // });
-    console.log(x);
+    $("#results").show().append("<li>" + player.roll() + "</li>");
+    // player.one();
+
+
+    console.log(player.roll());
   });
 });
