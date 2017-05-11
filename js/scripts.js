@@ -17,13 +17,12 @@ Player.prototype.roll2 = function() {
 Player.prototype.one = function() {
   if (this.currentRoll === 1) {
 
-
-
   } else if (this.currentRoll >= 2) {
       this.currentRoll;
       // alert(this.currentRoll);
   }
 }
+
 Player.prototype.two = function() {
   if (this.currentRoll2 === 1) {
 
@@ -43,7 +42,7 @@ $(function(){
   $("#formOne").submit(function(event) {
     event.preventDefault();
 
-    var player = new Player("", "");
+    var player = new Player();
 
     player.currentRoll = player.roll();
     if (player.currentRoll === 1) {
@@ -57,10 +56,12 @@ $(function(){
   $("#formTwo").submit(function(event) {
       event.preventDefault();
 
-      var player2 = new Player ("", "")
+      var player2 = new Player();
 
       player2.currentRoll2 = player2.roll2();
-
+      if (player2.currentRoll2 === 1) {
+        $("#results2").empty();
+      }
       $("#results2").show().append("<li>" + player2.currentRoll2 + "</li>");
       player2.two();
 
