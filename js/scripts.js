@@ -2,7 +2,7 @@
 
 function Player() {
   this.currentRoll;
-  this.currentRoll2;
+  // this.currentRoll2;
 }
 
 
@@ -19,21 +19,20 @@ Player.prototype.one = function() {
 
   } else if (this.currentRoll >= 2) {
       this.currentRoll;
-      // alert(this.currentRoll);
   }
 }
 
 Player.prototype.two = function() {
-  if (this.currentRoll2 === 1) {
+  if (this.currentRoll === 1) {
 
-  } else if (this.currentRoll2 >= 2) {
-      this.currentRoll2;
-      // alert(this.currentRoll);
+  } else if (this.currentRoll >= 2) {
+      this.currentRoll;
   }
 }
 
+var addPlayer1 = (this.currentRoll);
+var addPlayer2 = (this.currentRoll);
 
-// numberArray = Player;
 
 
 //User Interface Logic
@@ -43,13 +42,15 @@ $(function(){
     event.preventDefault();
 
     var player = new Player();
-
     player.currentRoll = player.roll();
+    console.log(player.currentRoll);
+
     if (player.currentRoll === 1) {
       $("#results").empty();
     }
-
-    $("#results").show().append("<li>" + player.currentRoll + "</li>");
+    else {
+      $("#results").show().append("<li>" + player.currentRoll + "</li>");
+    }
     player.one();
   });
 
@@ -57,13 +58,15 @@ $(function(){
       event.preventDefault();
 
       var player2 = new Player();
+      player2.currentRoll = player2.roll2();
+      console.log(player2.currentRoll);
 
-      player2.currentRoll2 = player2.roll2();
-      if (player2.currentRoll2 === 1) {
+      if (player2.currentRoll === 1) {
         $("#results2").empty();
       }
-      $("#results2").show().append("<li>" + player2.currentRoll2 + "</li>");
+      else {
+        $("#results2").show().append("<li>" + player2.currentRoll + "</li>");
+      }
       player2.two();
-
     });
 });
