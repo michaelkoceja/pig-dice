@@ -13,3 +13,12 @@
 #score1 {
   display: none;
 }
+
+ul {
+  list-style-image: url("../img/dice.png");
+}
+
+body {
+  background-color: black;
+  color: white;
+}
