@@ -9,22 +9,24 @@
   </head>
   <body>
     <div class="container">
-      <form id="formOne">
-        <h1>Player 1</h1>
-        <button type="click" id="rollDice">Roll!</button>
-      </form>
-      <form id="formTwo">
-        <div class="form-group">
-          <h1>Player Two</h1>
+      <div class="row">
+        <div class="col-md-6">
+          <form id="formOne">
+            <h1>Player 1</h1>
+            <button type="click" id="rollDice">Roll!</button>
+          </form>
+          <ul id="results">
+          </ul>
         </div>
-        <button type="submit" id="rollDice2">Roll!</button>
-      </form>
-      <ul id="results">
-
-      </ul>
-      <ul id="results2">
-
-      </ul>
+        <div class="col-md-6">
+          <form id="formTwo">
+              <h1>Player Two</h1>
+            <button type="submit" id="rollDice2">Roll!</button>
+          </form>
+          <ul id="results2">
+          </ul>
+        </div>
+      </div>
     </div>
   </body>
 </html>

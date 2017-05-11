@@ -17,6 +17,8 @@ Player.prototype.roll2 = function() {
 Player.prototype.one = function() {
   if (this.currentRoll === 1) {
 
+
+
   } else if (this.currentRoll >= 2) {
       this.currentRoll;
       // alert(this.currentRoll);
@@ -31,6 +33,7 @@ Player.prototype.two = function() {
   }
 }
 
+
 // numberArray = Player;
 
 
@@ -43,6 +46,9 @@ $(function(){
     var player = new Player("", "");
 
     player.currentRoll = player.roll();
+    if (player.currentRoll === 1) {
+      $("#results").empty();
+    }
 
     $("#results").show().append("<li>" + player.currentRoll + "</li>");
     player.one();
