@@ -1,9 +1,8 @@
 //Business Logic
 
-function Player(name1, age) {
-  this.name1 = name1;
-  this.age = age;
+function Player() {
   this.currentRoll;
+  this.currentRoll2;
 }
 
 
@@ -11,11 +10,23 @@ Player.prototype.roll = function() {
   return Math.floor(Math.random()*6+1);
 }
 
+Player.prototype.roll2 = function() {
+  return Math.floor(Math.random()*6+1);
+}
+
 Player.prototype.one = function() {
   if (this.currentRoll === 1) {
 
   } else if (this.currentRoll >= 2) {
-      this.currentRoll += this.currentRoll;
+      this.currentRoll;
+      // alert(this.currentRoll);
+  }
+}
+Player.prototype.two = function() {
+  if (this.currentRoll2 === 1) {
+
+  } else if (this.currentRoll2 >= 2) {
+      this.currentRoll2;
       // alert(this.currentRoll);
   }
 }
@@ -30,17 +41,22 @@ $(function(){
     event.preventDefault();
 
     var player = new Player("", "");
-    // var numberArray = [];
 
     player.currentRoll = player.roll();
 
-
     $("#results").show().append("<li>" + player.currentRoll + "</li>");
-
     player.one();
-
-    console.log("1st "+player.roll());
-    console.log("2nd "+player.roll());
-
   });
+
+  $("#formTwo").submit(function(event) {
+      event.preventDefault();
+
+      var player2 = new Player ("", "")
+
+      player2.currentRoll2 = player2.roll2();
+
+      $("#results2").show().append("<li>" + player2.currentRoll2 + "</li>");
+      player2.two();
+
+    });
 });
